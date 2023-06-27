@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../helpers/constants.dart';
+
 class HomeUserList extends StatelessWidget {
   const HomeUserList({super.key});
 
@@ -21,46 +23,40 @@ class HomeUserList extends StatelessWidget {
         children: [
           Row(
             children: [
-              Expanded(
-                  child: ListTile(
-                leading: Icon(Icons.verified_user),
-                title: Text("Alina Rs.1000"),
-                subtitle: Text("5 sec ago"),
-                titleTextStyle: TextStyle(fontSize: 13),
-                subtitleTextStyle: TextStyle(fontSize: 13),
-              )),
-              Expanded(
-                  child: ListTile(
-                leading: Icon(Icons.verified_user),
-                title: Text("Misha Rs.2000"),
-                subtitle: Text("15 sec ago"),
-                titleTextStyle: TextStyle(fontSize: 13),
-                subtitleTextStyle: TextStyle(fontSize: 13),
-              )),
+              GridUser(userName: "Misha Rs.550", time: "15 sec ago"),
+              GridUser(userName: "Alina Rs.1000", time: "5 sec ago"),
             ],
           ),
           Row(
             children: [
-              Expanded(
-                  child: ListTile(
-                leading: Icon(Icons.verified_user),
-                title: Text("Alina Rs.1000"),
-                subtitle: Text("5 sec ago"),
-                titleTextStyle: TextStyle(fontSize: 13),
-                subtitleTextStyle: TextStyle(fontSize: 13),
-              )),
-              Expanded(
-                  child: ListTile(
-                leading: Icon(Icons.verified_user),
-                title: Text("Misha Rs.2000"),
-                subtitle: Text("15 sec ago"),
-                titleTextStyle: TextStyle(fontSize: 13),
-                subtitleTextStyle: TextStyle(fontSize: 13),
-              )),
+              GridUser(userName: "Misha Rs.200", time: "15 sec ago"),
+              GridUser(userName: "Alina Rs.1000", time: "5 sec ago"),
             ],
           ),
         ],
       ),
     );
+  }
+}
+
+class GridUser extends StatelessWidget {
+  final String userName;
+  final String time;
+  const GridUser({super.key, required this.userName, required this.time});
+
+  @override
+  Widget build(BuildContext context) {
+    return Flexible(
+        child: ListTile(
+      leading: Container(
+        padding: const EdgeInsets.all(5),
+          decoration: BoxDecoration(
+              shape: BoxShape.circle, border: Border.all(color: appColor,width: 3)),
+          child: const Icon(Icons.person)),
+      title: Text(userName),
+      subtitle: Text(time),
+      titleTextStyle: const TextStyle(fontSize: 13),
+      subtitleTextStyle: const TextStyle(fontSize: 13),
+    ));
   }
 }

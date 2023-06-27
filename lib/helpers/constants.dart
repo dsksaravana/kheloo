@@ -1,5 +1,10 @@
+import 'package:flutter/material.dart';
+
 const appNAME = "";
 const appLogo = "https://kheloo.com/images/logo.gif";
+const appColor = Color.fromARGB(255, 244, 180, 41);
+const appBackgroudColour = Color(0xFF040026);
+
 const List<String> bannerImages = [
   'https://kheloo.com/images/Dil-se-kheloo_375x250.jpg',
   'https://kheloo.com/images/10minwith.png',
